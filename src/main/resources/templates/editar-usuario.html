@@ -75,7 +75,7 @@
                 <a href="/user/all" class="ls-btn ls-btn-sm">Ver usuários</a>
             </header>
 
-            <form method="POST" th:action="@{/user/create} "class="ls-form row">
+            <form th:method="put" th:object="${usuario}" th:action="@{'/user/update/' + ${usuario.id}}" class="ls-form row">
 
                 <fieldset class="col-md-12">
 
@@ -83,7 +83,7 @@
                         <b class="ls-label-text">Nome de Usuário</b>
 
                         <div class="ls-prefix-group">
-                            <input type="text" data-ls-module="charCounter" maxlength="50" name="username"
+                            <input type="text" data-ls-module="charCounter" maxlength="50" th:field="*{username}" name="username"
                                    placeholder="Digite seu nome de usuário" required="true">
                             <span class="ls-label-text-prefix ls-ico-user"></span>
                         </div>
@@ -93,7 +93,7 @@
                     <label class="ls-label col-md-4">
                         <b class="ls-label-text">Nome Completo</b>
                         <div class="ls-prefix-group">
-                            <input type="text" data-ls-module="charCounter" maxlength="100" name="nomeCompleto"
+                            <input type="text" data-ls-module="charCounter" maxlength="100" th:field="*{nomeCompleto}" name="nomeCompleto"
                                    placeholder="Digite seu nome completo" required>
                             <span class="ls-label-text-prefix ls-ico-user"></span>
                         </div>
@@ -101,7 +101,7 @@
                     <label class="ls-label col-md-6">
                         <b class="ls-label-text">Senha</b>
                         <div class="ls-prefix-group">
-                            <input type="password" maxlength="20" id="password_field2a" name="senha">
+                            <input type="password" maxlength="20" id="password_field2a" th:field="*{senha}" name="senha">
                             <a class="ls-label-text-prefix ls-toggle-pass ls-ico-eye"
                                data-toggle-class="ls-ico-eye, ls-ico-eye-blocked" data-target="#password_field2a"
                                href="#">
@@ -112,9 +112,20 @@
                     <label class="ls-label col-md-4">
                         <b class="ls-label-text">Status</b>
                         <div class="ls-custom-select">
-                            <select class="ls-custom" name="ativado">
+                            <select class="ls-custom" th:selected="*{ativado}" th:field="*{ativado}" name="ativado">
                                 <option value="true">Ativado</option>
                                 <option value="false">Desativado</option>
+                            </select>
+                        </div>
+                    </label>
+
+                    <label class="ls-label col-md-4">
+                        <b class="ls-label-text">Perfil</b>
+                        <div class="ls-custom-select">
+                            <select class="ls-custom" name="papeis">
+                                <th:block th:each="papel : ${listaPapel}">
+                                    <option th:value="${papel.id}" th:text="${papel.nome}"></option>
+                                </th:block>
                             </select>
                         </div>
                     </label>

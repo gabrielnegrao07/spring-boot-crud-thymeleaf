@@ -68,7 +68,6 @@
             <li>Novo Usuário</li>
         </ol>
 
-
         <div class="ls-box ls-board-box">
             <header class="ls-info-header">
                 <h2 class="ls-title-3">Cadastrar Usuário</h2>
@@ -115,6 +114,17 @@
                             <select class="ls-custom" name="ativado">
                                 <option value="true">Ativado</option>
                                 <option value="false">Desativado</option>
+                            </select>
+                        </div>
+                    </label>
+
+                    <label class="ls-label col-md-4">
+                        <b class="ls-label-text">Perfil</b>
+                        <div class="ls-custom-select">
+                            <select class="ls-custom" name="papeis">
+                                <th:block th:each="papel : ${listaPapel}">
+                                    <option th:value="${papel.id}" th:text="${papel.nome}"></option>
+                                </th:block>
                             </select>
                         </div>
                     </label>
