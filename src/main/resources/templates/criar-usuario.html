@@ -116,26 +116,17 @@
                         </div>
                     </label>
 
-                    <div class="ls-label-float-left col-md-12">
-                        <p>Selecione o perfil:</p>
-                        <label class="ls-label-text" for="papelAdmin">
-                            <input type="checkbox" name="listaPapel" id="papelAdmin" value="ADMIN" th:field="*{listaPapel}">
-                            ADMIN
-                        </label>
+                    <label class="ls-label col-md-4">
+                        <b class="ls-label-text">Perfil</b>
+                        <div class="ls-custom-select">
+                            <select class="ls-custom" name="papeis">
+                                <th:block th:each="papel : ${listaPapel}">
+                                    <option th:value="${papel.id}" th:text="${papel.nome}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </label>
 
-                        <label class="ls-label-text" for="Estagiario">
-                            <input type="checkbox" name="listaPapel" id="Estagiario" value="ESTAGIARIO" th:field="*{listaPapel}" >
-                            ESTAGIARIO
-                        </label>
-                        <label class="ls-label-text" for="Analista">
-                            <input type="checkbox" name="listaPapel" id="Analista" value="ANALISTA" th:field="*{listaPapel}" >
-                            ANALISTA
-                        </label>
-                        <label class="ls-label-text" for="Gerente">
-                            <input type="checkbox" name="listaPapel" id="Gerente" value="GERENTE" th:field="*{listaPapel}" >
-                            GERENTE
-                        </label>
-                    </div>
                     <div class="ls-actions-btn">
                         <button class="ls-btn-primary" type="submit">Salvar</button>
                         <a href="/user/all" class="ls-btn">Cancelar</a>
