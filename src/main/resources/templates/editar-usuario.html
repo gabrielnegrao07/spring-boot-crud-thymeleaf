@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html class="ls-theme-indigo ls-html-nobg  ls-browser-chrome ls-window-md ls-screen-lg" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <meta charset="UTF-8">
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <title>Cadastrar Clientes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="form-validation.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
     <link href="http://assets.locaweb.com.br/locastyle/3.10.1/stylesheets/locastyle.css" rel="stylesheet"
           type="text/css">
     <link rel="icon" sizes="192x192" href="/locawebstyle/assets/images/ico-boilerplate.png">
@@ -61,17 +60,16 @@
 
     <div class="container-fluid">
 
-        <h1 class="ls-title-intro ls-ico-user-add">Novo Usuário</h1>
+        <h1 class="ls-title-intro ls-ico-user-add">Editar Usuário</h1>
 
         <ol class="ls-breadcrumb">
             <li><a href="/user/all">Início</a></li>
             <li>Editar Usuário</li>
         </ol>
 
-
         <div class="ls-box ls-board-box">
             <header class="ls-info-header">
-                <h2 class="ls-title-3">Cadastrar Usuário</h2>
+                <h2 class="ls-title-3">Editar Usuário</h2>
                 <a href="/user/all" class="ls-btn ls-btn-sm">Ver usuários</a>
             </header>
 
@@ -84,7 +82,7 @@
 
                         <div class="ls-prefix-group">
                             <input type="text" data-ls-module="charCounter" maxlength="50" th:field="*{username}" name="username"
-                                   placeholder="Digite seu nome de usuário" required="true">
+                                   placeholder="Digite seu nome de usuário" required>
                             <span class="ls-label-text-prefix ls-ico-user"></span>
                         </div>
 
@@ -119,16 +117,15 @@
                         </div>
                     </label>
 
-                    <label class="ls-label col-md-4">
-                        <b class="ls-label-text">Perfil</b>
-                        <div class="ls-custom-select">
-                            <select class="ls-custom" name="papeis">
-                                <th:block th:each="papel : ${listaPapel}">
-                                    <option th:value="${papel.id}" th:text="${papel.nome}"></option>
-                                </th:block>
-                            </select>
+                    <div class="ls-label-float-left col-md-12">
+                        <p>Selecione o perfil:</p>
+
+                        <div th:each="papel : ${listaPapel}">
+                            <label class="ls-label-text">
+                                <input type="checkbox" th:value="${papel.id}" th:text="${papel.nome}">
+                            </label>
                         </div>
-                    </label>
+                    </div>
 
                     <div class="ls-actions-btn">
                         <button class="ls-btn-primary" type="submit">Salvar</button>

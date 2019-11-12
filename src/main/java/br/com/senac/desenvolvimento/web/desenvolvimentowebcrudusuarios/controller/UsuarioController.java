@@ -28,7 +28,8 @@ public class UsuarioController {
     @PostMapping("/user/create")
     public ModelAndView cadastrar(@ModelAttribute("usuario") Usuario usuario, RedirectAttributes redirAttr) {
         ModelAndView mv = new ModelAndView("redirect:/user/all");
-        service.cadastrar(usuario);
+        Usuario usuarioAdicionado = service.cadastrar(usuario);
+        mv.addObject("usuarioAdicionado", usuarioAdicionado);
         return mv;
     }
 
