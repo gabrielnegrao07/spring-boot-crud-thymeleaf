@@ -46,13 +46,11 @@ public class UsuarioController {
         list.addAll(Arrays.asList(Usuario.builder()
                 .id(1L)
                 .nomeCompleto("Gabriel Negrão Silva")
-                .username("ganegrao")
-                .senha("teste123")
+                .ativado(true)
                 .build(), Usuario.builder()
                 .id(2L)
                 .nomeCompleto("Davi Marques")
-                .username("davimarques")
-                .senha("teste123")
+                .ativado(false)
                 .build()));
         return list;
     }

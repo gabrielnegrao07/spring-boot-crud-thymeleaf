@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html class="ls-theme-indigo ls-html-nobg  ls-browser-chrome ls-window-md ls-screen-lg" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Listagem Usuários</title>
@@ -80,12 +80,10 @@
             <table class="ls-table">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nome</th>
-                    <th>Usuário</th>
-                    <th>Senha</th>
-                    <th>Perfil</th>
                     <th>Status</th>
-                    <th></th>
+                    <th>Ações</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -93,9 +91,7 @@
                     <tr>
                         <td th:text="${user.nomeCompleto}"></td>
                         <td th:text="${user.username}"></td>
-                        <td th:text="${user.senha}"></td>
-<!--                        <td th:text="${user.perfil}"</td>-->
-<!--                        <td th:text="${user.status}"></td>-->
+                        <td th:text="Ativado"></td>
                         <td>
                             <div>
                                 <a href="/user/update" class="ls-btn-primary">Editar</a>
